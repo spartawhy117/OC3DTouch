@@ -14,6 +14,7 @@
 
 @property (nonatomic,copy)NSArray *items;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end
 
@@ -90,15 +91,15 @@
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
     CGPoint p=[self.tableView convertPoint:location fromView:self.view];
-    NSIndexPath *indexPath=[self.tableView indexPathForRowAtPoint:p];
+    self.indexPath=[self.tableView indexPathForRowAtPoint:p];
     
-    UITableViewCell *cell=[self.tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell=[self.tableView cellForRowAtIndexPath:self.indexPath];
     
     DetailViewController *detail=[[DetailViewController alloc]initWithNibName:@"DetailViewController" bundle:nil];
     
     detail.value=cell.textLabel.text;
     
-    if(indexPath.row>[self.items count])
+    if(self.indexPath.row>[self.items count])
     {
         return nil;
     }
@@ -109,7 +110,11 @@
 
 -(void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
-    [self showViewController:viewControllerToCommit sender:self];
+    
+    //this method will pop the whole table
+    //[self showViewController:viewControllerToCommit sender:self];
+    
+    [self.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
 }
 /*
 #pragma mark - Navigation
