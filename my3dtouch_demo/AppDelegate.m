@@ -137,9 +137,9 @@
     //newThingsSet.thumbnailData=UIImagePNGRepresentation([UIImage imageNamed:@""]);
     
     CSSearchableItemAttributeSet *homeSet=[[CSSearchableItemAttributeSet alloc]initWithItemContentType:@"homeSet"];
-    newThingsSet.title=@"个人主页";
-    newThingsSet.contentDescription=@"快捷入口：我的世界-个人主页";
-    newThingsSet.keywords=@[@"新鲜事",@"我的世界",@"MC",@"Minecraft"];
+    homeSet.title=@"个人主页";
+    homeSet.contentDescription=@"快捷入口：我的世界-个人主页";
+    homeSet.keywords=@[@"个人主页",@"我的世界",@"MC",@"Minecraft"];
     
     
     
