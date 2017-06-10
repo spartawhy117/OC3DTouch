@@ -10,6 +10,7 @@
 #include "DetailViewController.h"
 
 
+
 @interface TableContrroler ()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate>
 
 @property (nonatomic,copy)NSArray *items;
@@ -116,6 +117,11 @@
     
     [self.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
 }
+
+
+
+
+
 /*
 #pragma mark - Navigation
 

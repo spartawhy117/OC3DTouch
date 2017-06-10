@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EFC4DA7A1EEB9264007DF76E /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */; };
 		EFE33AD21EE932AE006E7EAA /* TableContrroler.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE33AD11EE932AE006E7EAA /* TableContrroler.m */; };
 		EFE33AD61EE95874006E7EAA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE33AD41EE95874006E7EAA /* DetailViewController.m */; };
 		EFE33AD71EE95874006E7EAA /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE33AD51EE95874006E7EAA /* DetailViewController.xib */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		EFE33AD01EE932AE006E7EAA /* TableContrroler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableContrroler.h; sourceTree = "<group>"; };
 		EFE33AD11EE932AE006E7EAA /* TableContrroler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableContrroler.m; sourceTree = "<group>"; };
 		EFE33AD31EE95874006E7EAA /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC4DA7A1EEB9264007DF76E /* CoreSpotlight.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EFC4DA781EEB9264007DF76E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EFF8240F1EE6785F008D1BBC = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +101,7 @@
 				EFF824341EE6785F008D1BBC /* my3dtouch_demoTests */,
 				EFF8243F1EE6785F008D1BBC /* my3dtouch_demoUITests */,
 				EFF824191EE6785F008D1BBC /* Products */,
+				EFC4DA781EEB9264007DF76E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
