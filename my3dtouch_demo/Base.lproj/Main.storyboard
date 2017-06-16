@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="-313" y="-558"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar View Controller-->
         <scene sceneID="iSj-wW-i2N">
             <objects>
-                <tabBarController id="pv3-Yh-r9k" sceneMemberID="viewController">
+                <tabBarController id="pv3-Yh-r9k" customClass="TabbarViewController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="kXZ-0W-yeb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

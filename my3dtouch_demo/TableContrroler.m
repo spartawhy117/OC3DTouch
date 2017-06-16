@@ -15,8 +15,8 @@
 
 @property (nonatomic,copy)NSArray *items;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSIndexPath *indexPath;
-
+@property (nonatomic, assign) CGRect sourceRect;       //手势点位置，对应需要突出显示的rect
+@property (nonatomic, strong) NSIndexPath *indexPath;  //手势点位置，对应cell的indexPath
 @end
 
 @implementation TableContrroler
@@ -40,11 +40,8 @@
         
     }
     
+   
     
-    
-}
--(void)viewDidAppear:(BOOL)animated
-{
     
 }
 
@@ -65,6 +62,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 #pragma mark - table delegate
 
@@ -88,11 +88,17 @@
     
 }
 
-#pragma mark -previewing delegate
+#pragma mark -peek手势
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
     CGPoint p=[self.tableView convertPoint:location fromView:self.view];
     self.indexPath=[self.tableView indexPathForRowAtPoint:p];
+    
+    //判断是否越界
+    if (![self getShouldShowRectAndIndexPathWithLocation:location]) return nil;
+    //设置选中size
+    previewingContext.sourceRect = self.sourceRect;
+    
     
     UITableViewCell *cell=[self.tableView cellForRowAtIndexPath:self.indexPath];
     
@@ -108,7 +114,7 @@
     return detail;
     
 }
-
+#pragma mark -pop手势
 -(void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
     
@@ -118,18 +124,20 @@
     [self.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
 }
 
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark 判断是否越界，并计算cell的下标
+- (BOOL)getShouldShowRectAndIndexPathWithLocation:(CGPoint)location {
+    //获取第一cell的坐标
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+    CGRect rectInTableView = [self.tableView rectForRowAtIndexPath:indexPath];
+    CGRect rect = [self.tableView convertRect:rectInTableView toView:[self.tableView superview]];
+    //计算出选中哪个cell
+    CGFloat height = 44;
+    NSInteger row = (location.y - rect.origin.y)/height;
+    self.sourceRect = CGRectMake(0, row * height + rect.origin.y, SCREEN_WIDTH, height);
+    self.indexPath = [NSIndexPath indexPathForItem:row inSection:0];
+    // 如果row越界了，返回NO 不处理peek手势
+    return row >= self.items.count ? NO : YES;
 }
-*/
+
 
 @end

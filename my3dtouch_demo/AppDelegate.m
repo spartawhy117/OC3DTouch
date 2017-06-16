@@ -17,14 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UIApplicationShortcutItem *item=[launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
-    [self actionWithShortcutItem:item];
     
     if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
         
         [self setCoreSpotlight];
     }
     
+   
     
     return YES;
 }
@@ -79,51 +78,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
 #pragma mark -quick actions delegate
 -(void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler
 {
     
-   if(shortcutItem)
-   {
-       [self actionWithShortcutItem:shortcutItem];
-   }
-    
-    if(completionHandler)
-    {
-        completionHandler(YES);
-    }
-    
-    
+//   if(shortcutItem)
+//   {
+//       [self actionWithShortcutItem:shortcutItem];
+//   }
+//    
+//    if(completionHandler)
+//    {
+//        completionHandler(YES);
+//    }
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"Notice3DTouch" object:self userInfo:@{ @"type" : shortcutItem.type }];
 }
 
--(void)actionWithShortcutItem:(UIApplicationShortcutItem *)item
-{
-    if(item!=nil)
-    {
-        UITabBarController *rootController=(UITabBarController *)self.window.rootViewController;
-        
-        //todo some viewcontroller transition
-        if([item.type isEqualToString:@"openHome"])
-        {
-            rootController.selectedIndex=0;
-            
-        }
-        if([item.type isEqualToString:@"openPush"])
-        {
-            rootController.selectedIndex=1;
-        }
-        if([item.type isEqualToString:@"openScanner"])
-        {
-            rootController.selectedIndex=2;
-        }
-        if([item.type isEqualToString:@"openSearch"])
-        {
-            rootController.selectedIndex=3;
-        }
-       
-
-    }
-}
 
 #pragma mark -corespotlight
 -(void)setCoreSpotlight

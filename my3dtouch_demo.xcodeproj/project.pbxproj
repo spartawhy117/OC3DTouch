@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EFC4DA7A1EEB9264007DF76E /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */; };
+		EF4E21421EF3BCF500D9D6CA /* TabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4E21411EF3BCF500D9D6CA /* TabbarViewController.m */; };
+		EFC4DA7A1EEB9264007DF76E /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		EFE33AD21EE932AE006E7EAA /* TableContrroler.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE33AD11EE932AE006E7EAA /* TableContrroler.m */; };
 		EFE33AD61EE95874006E7EAA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE33AD41EE95874006E7EAA /* DetailViewController.m */; };
 		EFE33AD71EE95874006E7EAA /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE33AD51EE95874006E7EAA /* DetailViewController.xib */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF4E21401EF3BCF500D9D6CA /* TabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabbarViewController.h; sourceTree = "<group>"; };
+		EF4E21411EF3BCF500D9D6CA /* TabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabbarViewController.m; sourceTree = "<group>"; };
 		EFC4DA791EEB9264007DF76E /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		EFE33AD01EE932AE006E7EAA /* TableContrroler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableContrroler.h; sourceTree = "<group>"; };
 		EFE33AD11EE932AE006E7EAA /* TableContrroler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableContrroler.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				EFE33AD31EE95874006E7EAA /* DetailViewController.h */,
 				EFE33AD41EE95874006E7EAA /* DetailViewController.m */,
 				EFE33AD51EE95874006E7EAA /* DetailViewController.xib */,
+				EF4E21401EF3BCF500D9D6CA /* TabbarViewController.h */,
+				EF4E21411EF3BCF500D9D6CA /* TabbarViewController.m */,
 			);
 			path = my3dtouch_demo;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF4E21421EF3BCF500D9D6CA /* TabbarViewController.m in Sources */,
 				EFF824201EE6785F008D1BBC /* AppDelegate.m in Sources */,
 				EFE33AD21EE932AE006E7EAA /* TableContrroler.m in Sources */,
 				EFF8241D1EE6785F008D1BBC /* main.m in Sources */,
@@ -451,11 +457,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6MFEP9UA6E;
 				INFOPLIST_FILE = my3dtouch_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myos.spartawhy.my3dtouch-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos10.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -465,10 +472,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6MFEP9UA6E;
 				INFOPLIST_FILE = my3dtouch_demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.myos.spartawhy.my3dtouch-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
