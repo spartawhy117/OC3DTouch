@@ -49,7 +49,7 @@
 {
     if(self.traitCollection.forceTouchCapability==UIForceTouchCapabilityAvailable)
     {
-        [self registerForPreviewingWithDelegate:(id)self sourceView:self.tableView];
+       [self registerForPreviewingWithDelegate:(id)self sourceView:self.tableView];
         return YES;
         
     }
@@ -94,17 +94,15 @@
     CGPoint p=[self.tableView convertPoint:location fromView:self.view];
     self.indexPath=[self.tableView indexPathForRowAtPoint:p];
     
-    //判断是否越界
-    if (![self getShouldShowRectAndIndexPathWithLocation:location]) return nil;
-    //设置选中size
-    previewingContext.sourceRect = self.sourceRect;
-    
     
     UITableViewCell *cell=[self.tableView cellForRowAtIndexPath:self.indexPath];
+    
     
     DetailViewController *detail=[[DetailViewController alloc]initWithNibName:@"DetailViewController" bundle:nil];
     
     detail.value=cell.textLabel.text;
+    previewingContext.sourceRect=cell.frame;
+    
     
     if(self.indexPath.row>[self.items count])
     {
@@ -117,11 +115,8 @@
 #pragma mark -pop手势
 -(void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
 {
-    
-    //this method will pop the whole table
-    //[self showViewController:viewControllerToCommit sender:self];
-    
     [self.tableView deselectRowAtIndexPath:self.indexPath animated:YES];
+    [self presentViewController:viewControllerToCommit animated:YES completion:nil];
 }
 
 #pragma mark 判断是否越界，并计算cell的下标
